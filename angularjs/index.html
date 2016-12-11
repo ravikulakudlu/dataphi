@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="minmax">
+<head>
+	<title>Patient info</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+</head>
+<body>
+  <a href="http://ec2-54-218-126-159.us-west-2.compute.amazonaws.com:3029/searchfun/search.html" class="btn btn-info" role="button">Go_to_Patient_directory</a>
+
+<div class="container main-content" ng-controller="MinMaxCtrl">
+	<div class="row">
+
+	<form ng-submit="onSubmit()"
+        novalidate="novalidate">
+		<div class="form-group">
+			<label for="firstname">Firstname</label>
+			<input type="text"
+			       class="form-control"
+                   ng-model="formModel.firstname"
+                   ng-pattern="/^[A-Za-z_]{1,32}$/"
+                   ng-minlength="3"
+                   ng-pattern-err-type="fname"
+                   id="fname"
+                   required="required">
+              
+        </div>
+                   
+        <div class="form-group">
+        	
+            <label for="lastname">Lastname</label>
+			<input type="text"
+			       class="form-control"
+                   ng-model="formModel.lastname"
+                   ng-pattern="/^[A-Za-z_]{1,32}$/"
+                   ng-minlength="1"
+                   ng-pattern-err-type="lname"
+                   id="lname"
+                   required="required">
+              
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+			<input type="email"
+			       class="form-control"
+                   ng-model="formModel.email"
+                   id="email"
+                   required="required
+                   placeholder="ex@ex.com>
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone No</label>
+			<input type="number"
+			       class="form-control"
+                   ng-model="formModel.phone"
+                   ng-pattern="/^[0-9_]{1,32}$/"
+                   ng-minlength="10"
+                   ng-maxlength="10"
+                   ng-pattern-err-type="char"
+                   ng-minlength-err-type="min"
+                   ng-maxlength-err-type="max"
+                   id="phoneno"
+                   required="required">
+        </div>
+
+        <div class="form-group">  
+            <label for="age">Age</label>
+			<input type="number"
+			       class="form-control"
+                   ng-model="formModel.age"
+                   min="1"
+                   max="150"
+                   id="age"
+                   ng-min-err-type="min1"
+                   ng-max-err-type="big"
+                   required="required">
+        </div>
+
+        <div class="form-group">
+            <label for="dob">DOB</label>
+			<input type="date"
+			       class="form-control"
+                   ng-model="formModel.dob"
+                   id="dob"
+                   required="required">
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender</label>
+			<select name="gender"
+			        class="form-control"
+                    ng-model="formModel.gender"
+                    id="gender">
+
+                    <option value="m" ng-selected="selected">Male 
+                                         </option>
+                    <option value="f">Female</option>
+
+            </select>
+        </div>
+
+         <div class="form-group">
+            <label for="address">Address</label>
+			<input type="text"
+			       class="form-control"
+                   ng-model="formModel.address"
+                   id="address"
+                   required="required">
+        </div>
+
+         <div class="form-group">
+            <label for="message">Message</label>
+			<input type="text"
+			       class="form-control"
+                   ng-model="formModel.message"
+                   id="message>
+        </div>
+        
+         <div class="form-group">
+          <br>
+           <button class="btn btn-primary" type="submit">Submit
+           </button>
+        </div>
+
+
+     </div>
+     </div>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="jcs-auto-validate.min.js"></script>
+
+     <script src="main.js"></script>
+
+</body>
+
+</html>
+
+
+
+        

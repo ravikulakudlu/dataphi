@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="minmax">
+<head>
+	<title>Search...</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+</head>
+<body>
+	 <a href="http://ec2-54-218-126-159.us-west-2.compute.amazonaws.com:3029/index.html" class="btn btn-info" role="button">Home</a>
+	 <div class="row">
+	<div classs="container main-content" ng-controller="PatientsController">
+       
+		<div class="row">
+			<div class="col-md-8">
+				<form class="form-inline well well-sm">
+					<span class="glyphicon glyphicon-sort-by-attributes"></span>
+					<div class="form-group">
+						
+					</div>
+
+				    <div class="form-group">
+				    	<input type="text"
+				    	       class="form-control"
+				    	       id="name"
+				    	       ng-model="search"
+				    	       placeholder="search by name..."
+				    	       />
+
+	</div>
+   </form>
+ </div>
+</div>
+
+
+<div class="row">
+ <div class="col-md-8">
+	<table class="table table-bordered">
+
+		<tr>
+			<th>#</th>
+			<th>Fname</th>
+			<th>Lname</th>
+			<th>Email</th>
+			<th>Phoneno</th>
+			<th>DOB</th>
+			<th>Address</th>
+			<th>gender</th>
+		</tr>
+		
+
+		<tr ng-repeat="patient in patients | filter:sensitiveSearch | orderBy:'order'"
+		    ng-style="{
+		'background-color' : $index == selectedIndex  ? 'lightgray' : ''
+		}"	
+             ng-click="selectPatient(patient,$index)">
+
+
+           <td>{{$index}}</td>
+           <td>{{patient.firstname}}</td>
+           <td>{{patient.lastname}}</td>
+           <td>{{patient.email}}</td>
+           <td>{{patient.phone}}</td>
+           <td>{{patient.dob}}</td>
+           <td>{{patient.address}}</td>
+           <td>{{patient.gender}}</td>
+        </tr>
+
+
+
+     </table>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="search.js"></script>
+    <script src="http://errors.angularjs.org/1.4.8/$injector/nomod?p0=minmax"</script>
+
+
+
+
+
+</body>
+</html>
